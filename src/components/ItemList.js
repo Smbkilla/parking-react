@@ -6,7 +6,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-import IconButton from "@material-ui/core/IconButton";
 
 import "./ItemList.css";
 
@@ -26,15 +25,11 @@ export default function ItemList({items, getText, getKey, onDelete, onEdit}) {
                 </Grid>
               </Grid>
               <Grid item xs={1} direction="row" container justify="space-between">
-                <Grid item>
-                  <IconButton onClick={onDelete(item)}>
-                    <DeleteIcon/>
-                  </IconButton>
+                <Grid item onClick={onDelete(item)}>
+                  <DeleteIcon/>
                 </Grid>
-                <Grid item>
-                  <IconButton onClick={onEdit(item)}>
-                    <EditIcon/>
-                  </IconButton>
+                <Grid item onClick={onEdit(item)}>
+                  <EditIcon/>
                 </Grid>
               </Grid>
             </Grid>

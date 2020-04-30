@@ -17,6 +17,14 @@ export default function Floors() {
     })();
   }, []);
 
+  const onEdit = (floor) => () => {
+
+  };
+
+  const onDelete = (floor) => () => {
+
+  };
+
   return (
     <Grid container justify="center" className="Floors" spacing={5}>
       <Grid item xs={12}>
@@ -25,7 +33,11 @@ export default function Floors() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <ItemList items={floors} getText={item => item.level} getKey={item => item.level}/>
+        <ItemList items={floors}
+                  getText={item => item.level}
+                  getKey={item => item.level}
+                  onDelete={onDelete}
+                  onEdit={onEdit}/>
       </Grid>
     </Grid>
   );

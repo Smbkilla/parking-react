@@ -17,6 +17,14 @@ export default function ParkingSpaces() {
     })();
   }, []);
 
+  const onEdit = (parkingSpace) => () => {
+
+  };
+
+  const onDelete = (parkingSpace) => () => {
+
+  };
+
   return (
     <Grid container justify="center" className="ParkingSpaces" spacing={5}>
       <Grid item xs={12}>
@@ -25,7 +33,11 @@ export default function ParkingSpaces() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <ItemList items={parkingSpaces} getText={item => `${item.section}${item.spaceNumber}, ${item.floor.level}`} getKey={item => item.id}/>
+        <ItemList items={parkingSpaces}
+                  getText={item => `${item.section}${item.spaceNumber}, ${item.floor.level}`}
+                  getKey={item => item.id}
+                  onDelete={onDelete}
+                  onEdit={onEdit}/>
       </Grid>
     </Grid>
   );
