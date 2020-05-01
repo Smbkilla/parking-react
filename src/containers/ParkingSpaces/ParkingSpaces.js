@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import {Grid, Typography} from "@material-ui/core";
 
-import ItemList from "../../components/ItemList";
+import ItemList from "../../components/ItemList/ItemList";
 import {getAllParkingSpaces} from "../../service/parkingSpaceService";
 
 import "./ParkingSpaces.css"

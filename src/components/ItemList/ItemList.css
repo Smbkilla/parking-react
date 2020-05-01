@@ -1,0 +1,29 @@
+.List {
+    background: white;
+}
+
+.dialogPaper {
+    max-height: calc(100% - 32px);
+}
+
+.content {
+    overflow: auto;
+    padding: 10px 24px;
+}
+
+.ItemGrid{
+    display: flex;
+    align-items: center;
+}
+
+.spacer{
+    flex-grow: 1;
+}
+
+.divider {
+    width: 95%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #DBDBDB;
+}
