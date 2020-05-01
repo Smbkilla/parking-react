@@ -17,6 +17,7 @@ const entranceObject = (entrance) => ({
   id: entrance.id || "",
   entranceName: entrance.entranceName || "",
   floor: {
+    id: _.get(entrance, "floor.id", ""),
     level: _.get(entrance, "floor.level", ""),
   },
 });
@@ -46,11 +47,10 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
 
   const onEntranceLevelChange = (e) => {
     const value = _.get(e, "target.value", "");
+    const floor = floors.find(floor => floor.id === value);
     setNewEntrance({
       ...newEntrance,
-      floor: {
-        level: value,
-      },
+      floor,
     });
   };
 
@@ -76,9 +76,9 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
                        variant="outlined"
                        select
                        fullWidth
-                       value={newEntrance.floor.level}
+                       value={newEntrance.floor.id}
                        onChange={onEntranceLevelChange}>
-              {floors.map(floor => <MenuItem value={floor.level} key={floor.level}>{floor.level}</MenuItem>)}
+              {floors.map(floor => <MenuItem value={floor.id} key={floor.id}>{floor.level}</MenuItem>)}
             </TextField>
           </Grid>
         </Grid>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Fab, Typography} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 import ItemList from "../../components/ItemList/ItemList";
@@ -8,7 +8,6 @@ import EditEntranceDialog from "./EditEntranceDialog";
 import {getAllEntrances, deleteEntrance, updateEntrance, createEntrance} from "../../service/entranceService";
 
 import "./Entrances.css"
-import Fab from "@material-ui/core/Fab";
 
 export default function Entrances() {
   const [entrances, setEntrances] = useState([]);
@@ -40,7 +39,7 @@ export default function Entrances() {
   };
 
   const onAddNew = (item) => async () => {
-    await createEntrance({entranceName: item.entranceName, level: item.floor.level});
+    await createEntrance(item);
     setOpen(false);
     await updateEntrances();
   };

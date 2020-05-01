@@ -6,6 +6,10 @@ export const getAllFloors = () => {
   return axios.get(api.getAllFloorsApi());
 };
 
+export const getAllFloor = (id) => {
+  return axios.get(api.getFloorApi(id));
+};
+
 export const createFloor = (floor) => {
   return axios.post(api.createFloorApi(), floor);
 };
@@ -15,5 +19,5 @@ export const updateFloor = (floor) => {
 };
 
 export const deleteFloor = (id) => {
-  return axios.get(api.deleteFloorApi(id));
+  return axios.delete(api.deleteFloorApi(id));
 };
