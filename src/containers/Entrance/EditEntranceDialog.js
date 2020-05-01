@@ -4,7 +4,6 @@ import _ from "lodash";
 import {
   Button,
   Dialog,
-  Typography,
   DialogTitle,
   DialogContent,
   DialogActions,
