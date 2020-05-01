@@ -24,6 +24,9 @@ export default function Home() {
     await getClosestParkingSpace(entranceId).then(res => {
       console.log(res.data);
     });
+    await numberOfUnoccupiedSpaces().then(res => {
+      setNumberOfFreeSpaces(res.data);
+    })
   };
 
   return (
