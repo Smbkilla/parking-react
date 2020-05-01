@@ -18,6 +18,8 @@ import InputIcon from '@material-ui/icons/Input';
 import ViewStreamIcon from '@material-ui/icons/ViewStream';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
+import {ElevationScroll} from "./ElevationScroll"
+
 export default function NavBar(props) {
   const [openDrawer, setOpenDrawer] = useState(false);
   const history = useHistory();
@@ -32,17 +34,19 @@ export default function NavBar(props) {
   };
 
   return (
-    <div className="root">
-      <AppBar position="static" color="primary">
-        <Toolbar>
-          <IconButton edge="start" className="toolbar-icon" color="inherit" aria-label="menu" onClick={onMenuClicked}>
-            <MenuIcon/>
-          </IconButton>
-          <Typography className="toolbar-title">
-            ParkMe
-          </Typography>
-        </Toolbar>
-      </AppBar>
+    <React.Fragment>
+      <ElevationScroll {...props}>
+        <AppBar>
+          <Toolbar>
+            <IconButton edge="start" className="toolbar-icon" color="inherit" aria-label="menu" onClick={onMenuClicked}>
+              <MenuIcon/>
+            </IconButton>
+            <Typography className="toolbar-title">
+              ParkMe
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
       <Drawer open={openDrawer}
               anchor="left">
         <div className="drawer-header">
@@ -70,6 +74,6 @@ export default function NavBar(props) {
           </ListItem>
         </List>
       </Drawer>
-    </div>
+    </React.Fragment>
   )
 }

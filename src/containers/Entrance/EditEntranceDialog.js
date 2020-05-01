@@ -21,7 +21,7 @@ const entranceObject = (entrance) => ({
   },
 });
 
-export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd}) {
+export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd, onUpdate}) {
   const [newEntrance, setNewEntrance] = useState(entranceObject(entrance));
   const [floors, setFloors] = useState([]);
 
@@ -59,7 +59,7 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
             onClose={onClose}
             maxWidth="md"
             PaperProps={{className: "dialogPaper"}}>
-      <DialogTitle>Uredi ulaz</DialogTitle>
+      <DialogTitle>{edit ? "Dodaj novi ulaz" : "Uredi ulaz"}</DialogTitle>
       <DialogContent className="content">
         <Grid container spacing={2} alignContent="space-between">
           <Grid item xs={12}>
@@ -85,7 +85,7 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Zatvori</Button>
-        <Button onClick={onAdd(newEntrance)}>Uredi</Button>
+        <Button onClick={edit ? onUpdate(newEntrance) : onAdd(newEntrance)}>{edit ? "Uredi" : "Dodaj"}</Button>
       </DialogActions>
     </Dialog>
   );

@@ -6,6 +6,8 @@ import ItemList from "../../components/ItemList/ItemList";
 import {getAllParkingSpaces} from "../../service/parkingSpaceService";
 
 import "./ParkingSpaces.css"
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
 
 export default function ParkingSpaces() {
   const [parkingSpaces, setParkingSpaces] = useState([]);
@@ -26,19 +28,26 @@ export default function ParkingSpaces() {
   };
 
   return (
-    <Grid container justify="center" className="ParkingSpaces" spacing={5}>
-      <Grid item xs={12}>
-        <Typography className="title" variant="h3">
-          Popis parkirnih mjesta
-        </Typography>
+    <React.Fragment>
+      <Grid container justify="center" className="ParkingSpaces" spacing={5}>
+        <Grid item xs={12}>
+          <Typography className="title" variant="h3">
+            Popis parkirnih mjesta
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <ItemList items={parkingSpaces}
+                    getText={item => `${item.section}${item.spaceNumber}, ${item.floor.level}`}
+                    getKey={item => item.id}
+                    onDelete={onDelete}
+                    onEdit={onEdit}/>
+        </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <ItemList items={parkingSpaces}
-                  getText={item => `${item.section}${item.spaceNumber}, ${item.floor.level}`}
-                  getKey={item => item.id}
-                  onDelete={onDelete}
-                  onEdit={onEdit}/>
-      </Grid>
-    </Grid>
+      <div className="fab">
+        <Fab color="primary" aria-label="add">
+          <AddIcon/>
+        </Fab>
+      </div>
+    </React.Fragment>
   );
 }

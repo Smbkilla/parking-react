@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{user, setUser}}>
         <BrowserRouter>
-          <NavBar user={user}/>
+          <NavBar/>
           <Route exact path='/' component={Home}/>
           <Route path='/floors' component={Floors}/>
           <Route path='/parkingSpaces' component={ParkingSpaces}/>
