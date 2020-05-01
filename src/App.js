@@ -3,7 +3,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 import Entrances from "./containers/Entrance/Entrances";
 import Floors from "./containers/Floors/Floors";
-import Home from "./containers/Home";
+import Home from "./containers/Home/Home";
 import NavBar from "./components/NavBar";
 import ParkingSpaces from "./containers/ParkingSpaces/ParkingSpaces";
 

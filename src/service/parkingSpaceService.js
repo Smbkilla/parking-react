@@ -23,7 +23,7 @@ export const createParkingSpace = (parkingSpace) => {
 };
 
 export const updateParkingSpace = (parkingSpace) => {
-  return axios.put(api.updateParkingSpaceApi(parkingSpace));
+  return axios.put(api.updateParkingSpaceApi(), parkingSpace);
 };
 
 export const deleteParkingSpace = (id) => {

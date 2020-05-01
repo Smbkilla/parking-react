@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import {Grid, Fab, Typography} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import InputIcon from '@material-ui/icons/Input';
 
 import ItemList from "../../components/ItemList/ItemList";
 import EditEntranceDialog from "./EditEntranceDialog";
@@ -65,6 +66,7 @@ export default function Entrances() {
         </Grid>
         <Grid item xs={12}>
           <ItemList items={entrances}
+                    icon={<InputIcon/>}
                     getText={(item) => item.entranceName}
                     getKey={(item) => item.id}
                     onDelete={onDelete}

@@ -16,6 +16,11 @@
     align-items: center;
 }
 
+.ItemActions{
+    display: flex;
+    align-items: center;
+}
+
 .spacer{
     flex-grow: 1;
 }

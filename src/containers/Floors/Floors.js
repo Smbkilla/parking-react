@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import {Grid, Fab, Typography} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import ViewStreamIcon from "@material-ui/icons/ViewStream";
 
 import ItemList from "../../components/ItemList/ItemList";
 import EditFloorDialog from "./EditFloorDialog";
@@ -65,6 +66,7 @@ export default function Floors() {
         </Grid>
         <Grid item xs={12}>
           <ItemList items={floors}
+                    icon={<ViewStreamIcon/>}
                     getText={item => item.level}
                     getKey={item => item.level}
                     onDelete={onDelete}

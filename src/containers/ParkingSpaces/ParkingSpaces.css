@@ -12,3 +12,18 @@
     left: auto;
     position: fixed;
 }
+
+.statusZauzeto{
+    color: red;
+    font-weight: bold;
+}
+
+.statusRezervirano{
+    color: yellow;
+    font-weight: bold;
+}
+
+.statusSlobodno{
+    color: forestgreen;
+    font-weight: bold;
+}
