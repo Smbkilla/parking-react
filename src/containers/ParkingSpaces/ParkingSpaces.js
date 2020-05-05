@@ -89,7 +89,7 @@ export default function ParkingSpaces() {
         </Grid>
         <Grid item xs={12}>
           <ItemList items={parkingSpaces}
-                    getText={item => `${item.section}${item.spaceNumber}, ${item.floor.level}`}
+                    getText={item => [`${item.section}${item.spaceNumber}`, `KAT: ${item.floor.level}`, `SENZOR: ${item.sensorId}`]}
                     getKey={item => item.id}
                     icon={<LocalParkingIcon/>}
                     onDelete={onDelete}

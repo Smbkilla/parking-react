@@ -16,14 +16,17 @@
 .statusZauzeto{
     color: red;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .statusRezervirano{
-    color: yellow;
+    color: #f5a40f;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .statusSlobodno{
     color: forestgreen;
     font-weight: bold;
+    text-transform: uppercase;
 }

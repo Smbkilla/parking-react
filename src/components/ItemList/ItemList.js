@@ -7,6 +7,20 @@ import EditIcon from '@material-ui/icons/Edit';
 import "./ItemList.css";
 
 export default function ItemList({items, getText, getKey, onDelete, onEdit, additionalInfo, icon}) {
+  const getTextItem = (item) => {
+    const texts = getText(item);
+
+    if(!Array.isArray(texts)){
+      return (
+        <Typography>{texts}</Typography>
+      );
+    } else {
+      return (
+        texts.map(text => <Typography>{text}</Typography>)
+      );
+    }
+  };
+
   return (
     <>
       <List className="List">
@@ -20,7 +34,7 @@ export default function ItemList({items, getText, getKey, onDelete, onEdit, addi
                     {icon}
                   </Grid>
                   <Grid item>
-                    <Typography>{getText(item)}</Typography>
+                    {getTextItem(item)}
                   </Grid>
                   {additionalInfo && additionalInfo(item)}
                 </Grid>

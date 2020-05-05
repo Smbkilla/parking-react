@@ -21,6 +21,11 @@
     align-items: center;
 }
 
+.ItemInfo{
+    display: flex;
+    align-items: center;
+}
+
 .spacer{
     flex-grow: 1;
 }

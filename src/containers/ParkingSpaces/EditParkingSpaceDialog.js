@@ -17,6 +17,7 @@ const parkingSpaceObject = (parkingSpace) => ({
   },
   occupied: _.get(parkingSpace, "occupied", ""),
   reserved: _.get(parkingSpace, "reserved", ""),
+  sensorId: _.get(parkingSpace, "sensorId", ""),
 });
 
 export default function EditParkingSpaceDialog({edit, parkingSpace, open, onClose, onAdd, onUpdate}) {
@@ -42,6 +43,11 @@ export default function EditParkingSpaceDialog({edit, parkingSpace, open, onClos
   const onParkingSpaceNumberChange = (e) => {
     const value = _.get(e, "target.value", "");
     setNewParkingSpace({...newParkingSpace, spaceNumber: value});
+  };
+
+  const onParkingSpaceSensorIdChange = (e) => {
+    const value = _.get(e, "target.value", "");
+    setNewParkingSpace({...newParkingSpace, sensorId: value});
   };
 
   const onParkingSpaceOccupiedChange = () => {
@@ -95,6 +101,14 @@ export default function EditParkingSpaceDialog({edit, parkingSpace, open, onClos
                        onChange={onParkingSpaceLevelChange}>
               {floors.map(floor => <MenuItem value={floor.id} key={floor.id}>{floor.level}</MenuItem>)}
             </TextField>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField label="Is senzora"
+                       required
+                       fullWidth
+                       variant="outlined"
+                       value={newParkingSpace.sensorId}
+                       onChange={onParkingSpaceSensorIdChange}/>
           </Grid>
           <Grid item xs={12} justify="center">
             <FormControlLabel
