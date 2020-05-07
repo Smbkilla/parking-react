@@ -84,8 +84,8 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Zatvori</Button>
-        <Button onClick={edit ? onUpdate(newEntrance) : onAdd(newEntrance)}>{edit ? "Uredi" : "Dodaj"}</Button>
+        <Button onClick={onClose} color="primary">Zatvori</Button>
+        <Button onClick={edit ? onUpdate(newEntrance) : onAdd(newEntrance)} color="primary" variant="contained">{edit ? "Uredi" : "Dodaj"}</Button>
       </DialogActions>
     </Dialog>
   );

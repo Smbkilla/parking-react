@@ -129,8 +129,8 @@ export default function EditParkingSpaceDialog({edit, parkingSpace, open, onClos
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Zatvori</Button>
-        <Button onClick={edit ? onUpdate(newParkingSpace) : onAdd(newParkingSpace)}>{edit ? "Uredi" : "Dodaj"}</Button>
+        <Button onClick={onClose} color="primary">Zatvori</Button>
+        <Button onClick={edit ? onUpdate(newParkingSpace) : onAdd(newParkingSpace)} color="primary" variant="contained">{edit ? "Uredi" : "Dodaj"}</Button>
       </DialogActions>
     </Dialog>
   );

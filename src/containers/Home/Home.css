@@ -23,3 +23,16 @@
   background: green;
   color: #e3ffeb
 }
+
+.root {
+    max-width: 345px;
+    min-width: 250px;
+}
+
+.media {
+    height: 250px;
+}
+
+.parkingSpaceTitle{
+
+}

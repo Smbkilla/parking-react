@@ -39,8 +39,8 @@ export default function EditFloorDialog({edit, floor, open, onClose, onAdd, onUp
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Zatvori</Button>
-        <Button onClick={edit ? onUpdate(newFloor) : onAdd(newFloor)}>{edit ? "Uredi" : "Dodaj"}</Button>
+        <Button onClick={onClose} color="primary">Zatvori</Button>
+        <Button onClick={edit ? onUpdate(newFloor) : onAdd(newFloor)} color="primary" variant="contained">{edit ? "Uredi" : "Dodaj"}</Button>
       </DialogActions>
     </Dialog>
   );
