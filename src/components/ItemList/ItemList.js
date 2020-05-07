@@ -22,13 +22,13 @@ export default function ItemList({items, getText, getKey, onDelete, onEdit, addi
   };
 
   return (
-    <>
+    <React.Fragment>
       <List className="List">
         {items.map(item => (
           <React.Fragment key={item.id}>
             <ListItem>
               <Grid container justify="space-between" key={getKey(item)} className="ItemGrid">
-                <Grid item xs={7} direction="row" container justify="flex-start" spacing={2} alignContent="center"
+                <Grid item xs={7} direction="row" container justify="flex-start" spacing={5} alignContent="center"
                       className="ItemInfo">
                   <Grid item>
                     {icon}
@@ -58,6 +58,6 @@ export default function ItemList({items, getText, getKey, onDelete, onEdit, addi
           </React.Fragment>
         ))}
       </List>
-    </>
+    </React.Fragment>
   );
 }

@@ -64,9 +64,9 @@ export default function Entrances() {
             Popis ulaza
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} container justify="center">
           <ItemList items={entrances}
-                    icon={<InputIcon/>}
+                    icon={<InputIcon color="primary"/>}
                     getText={(item) => item.entranceName}
                     getKey={(item) => item.id}
                     onDelete={onDelete}

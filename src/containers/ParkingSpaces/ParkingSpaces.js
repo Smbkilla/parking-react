@@ -15,6 +15,7 @@ import {
 } from "../../service/parkingSpaceService";
 
 import "./ParkingSpaces.css"
+import ViewStreamIcon from "@material-ui/icons/ViewStream";
 
 export default function ParkingSpaces() {
   const [parkingSpaces, setParkingSpaces] = useState([]);
@@ -87,11 +88,11 @@ export default function ParkingSpaces() {
             Popis parkirnih mjesta
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} container justify="center">
           <ItemList items={parkingSpaces}
-                    getText={item => [`${item.section}${item.spaceNumber}`, `KAT: ${item.floor.level}`, `SENZOR: ${item.sensorId}`]}
+                    getText={item => `${item.section}${item.spaceNumber}, ${item.floor.level}`}
                     getKey={item => item.id}
-                    icon={<LocalParkingIcon/>}
+                    icon={<LocalParkingIcon color="primary"/>}
                     onDelete={onDelete}
                     additionalInfo={itemAdditionalInfo}
                     onEdit={onEdit}/>

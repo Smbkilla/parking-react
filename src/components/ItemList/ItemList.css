@@ -1,5 +1,7 @@
 .List {
     background: white;
+    max-width: 800px;
+    width: 100%;
 }
 
 .dialogPaper {

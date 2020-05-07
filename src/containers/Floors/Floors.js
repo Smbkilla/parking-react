@@ -64,9 +64,9 @@ export default function Floors() {
             Popis katova
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} container justify="center">
           <ItemList items={floors}
-                    icon={<ViewStreamIcon/>}
+                    icon={<ViewStreamIcon color="primary"/>}
                     getText={item => item.level}
                     getKey={item => item.level}
                     onDelete={onDelete}

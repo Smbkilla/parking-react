@@ -30,3 +30,8 @@
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.parkingList{
+    display: flex;
+    align-items: center;
+}
