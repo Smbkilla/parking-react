@@ -1,5 +1,11 @@
 .Entrances {
+    padding-top: 100px;
     padding-left: 50px;
     padding-right: 50px;
-    background: #FBFBFB;
+}
+
+.fab {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
 }

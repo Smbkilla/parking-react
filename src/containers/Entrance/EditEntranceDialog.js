@@ -17,11 +17,12 @@ const entranceObject = (entrance) => ({
   id: entrance.id || "",
   entranceName: entrance.entranceName || "",
   floor: {
+    id: _.get(entrance, "floor.id", ""),
     level: _.get(entrance, "floor.level", ""),
   },
 });
 
-export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd}) {
+export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd, onUpdate}) {
   const [newEntrance, setNewEntrance] = useState(entranceObject(entrance));
   const [floors, setFloors] = useState([]);
 
@@ -46,11 +47,10 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
 
   const onEntranceLevelChange = (e) => {
     const value = _.get(e, "target.value", "");
+    const floor = floors.find(floor => floor.id === value);
     setNewEntrance({
       ...newEntrance,
-      floor: {
-        level: value,
-      },
+      floor,
     });
   };
 
@@ -59,7 +59,7 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
             onClose={onClose}
             maxWidth="md"
             PaperProps={{className: "dialogPaper"}}>
-      <DialogTitle>Uredi ulaz</DialogTitle>
+      <DialogTitle>{edit ? "Dodaj novi ulaz" : "Uredi ulaz"}</DialogTitle>
       <DialogContent className="content">
         <Grid container spacing={2} alignContent="space-between">
           <Grid item xs={12}>
@@ -76,16 +76,16 @@ export default function EditEntranceDialog({edit, entrance, open, onClose, onAdd
                        variant="outlined"
                        select
                        fullWidth
-                       value={newEntrance.floor.level}
+                       value={newEntrance.floor.id}
                        onChange={onEntranceLevelChange}>
-              {floors.map(floor => <MenuItem value={floor.level} key={floor.level}>{floor.level}</MenuItem>)}
+              {floors.map(floor => <MenuItem value={floor.id} key={floor.id}>{floor.level}</MenuItem>)}
             </TextField>
           </Grid>
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Zatvori</Button>
-        <Button onClick={onAdd(newEntrance)}>Uredi</Button>
+        <Button onClick={onClose} color="primary">Zatvori</Button>
+        <Button onClick={edit ? onUpdate(newEntrance) : onAdd(newEntrance)} color="primary" variant="contained">{edit ? "Uredi" : "Dodaj"}</Button>
       </DialogActions>
     </Dialog>
   );

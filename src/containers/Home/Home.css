@@ -1,0 +1,38 @@
+.Home {
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.countHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.count {
+  background: red;
+  border-radius: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+  font-size: 1.25rem;
+  color: #ffd4d4
+}
+
+.count.active {
+  background: green;
+  color: #e3ffeb
+}
+
+.root {
+    max-width: 345px;
+    min-width: 250px;
+}
+
+.media {
+    height: 250px;
+}
+
+.parkingSpaceTitle{
+
+}

@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
 
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Fab, Typography} from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import InputIcon from '@material-ui/icons/Input';
 
 import ItemList from "../../components/ItemList/ItemList";
 import EditEntranceDialog from "./EditEntranceDialog";
-import {getAllEntrances, deleteEntrance, updateEntrance} from "../../service/entranceService";
+import {getAllEntrances, deleteEntrance, updateEntrance, createEntrance} from "../../service/entranceService";
 
 import "./Entrances.css"
 
@@ -12,17 +14,35 @@ export default function Entrances() {
   const [entrances, setEntrances] = useState([]);
   const [open, setOpen] = useState(false);
   const [entrance, setEntrance] = useState({});
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const allEntrances = (await getAllEntrances()).data;
-      setEntrances(allEntrances);
+      await updateEntrances();
     })();
   }, []);
 
+  const updateEntrances = async () => {
+    const allEntrances = (await getAllEntrances()).data;
+    setEntrances(allEntrances);
+  };
+
   const onEdit = (item) => async () => {
     setEntrance(item);
+    setEdit(true);
     setOpen(true);
+  };
+
+  const onAdd = () => {
+    setEdit(false);
+    setEntrance({});
+    setOpen(true);
+  };
+
+  const onAddNew = (item) => async () => {
+    await createEntrance(item);
+    setOpen(false);
+    await updateEntrances();
   };
 
   const onDelete = (item) => async () => {
@@ -32,25 +52,33 @@ export default function Entrances() {
 
   const onUpdate = (item) => async () => {
     await updateEntrance(item);
-    setEntrances((await getAllEntrances()).data);
+    setEntrances([...entrances.filter(entrance => entrance.id !== item.id), item]);
     setOpen(false);
   };
 
   return (
-    <Grid container justify="center" className="Entrances" spacing={5}>
-      <Grid item xs={12}>
-        <Typography className="title" variant="h3">
-          Popis ulaza
-        </Typography>
+    <React.Fragment>
+      <Grid container justify="center" className="Entrances" spacing={5} direction="column">
+        <Grid item xs={12}>
+          <Typography className="title" variant="h3">
+            Popis ulaza
+          </Typography>
+        </Grid>
+        <Grid item xs={12} container justify="center">
+          <ItemList items={entrances}
+                    icon={<InputIcon color="primary"/>}
+                    getText={(item) => item.entranceName}
+                    getKey={(item) => item.id}
+                    onDelete={onDelete}
+                    onEdit={onEdit}/>
+        </Grid>
+        <EditEntranceDialog open={open} entrance={entrance} onClose={() => setOpen(false)} onUpdate={onUpdate} onAdd={onAddNew} edit={edit}/>
       </Grid>
-      <Grid item xs={12}>
-        <ItemList items={entrances}
-                  getText={(item) => item.entranceName}
-                  getKey={(item) => item.id}
-                  onDelete={onDelete}
-                  onEdit={onEdit}/>
-      </Grid>
-      <EditEntranceDialog open={open} entrance={entrance} onClose={() => setOpen(false)} onAdd={onUpdate}/>
-    </Grid>
+      <div className="fab">
+        <Fab color="primary" aria-label="add" onClick={onAdd}>
+          <AddIcon/>
+        </Fab>
+      </div>
+    </React.Fragment>
   );
 }

@@ -1,5 +1,7 @@
 .List {
     background: white;
+    max-width: 800px;
+    width: 100%;
 }
 
 .dialogPaper {
@@ -12,6 +14,16 @@
 }
 
 .ItemGrid{
+    display: flex;
+    align-items: center;
+}
+
+.ItemActions{
+    display: flex;
+    align-items: center;
+}
+
+.ItemInfo{
     display: flex;
     align-items: center;
 }

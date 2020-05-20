@@ -1,5 +1,37 @@
 .ParkingSpaces {
+    padding-top: 100px;
     padding-left: 50px;
     padding-right: 50px;
-    background: #FBFBFB;
+}
+
+.fab {
+    margin: 0;
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    position: fixed;
+}
+
+.statusZauzeto{
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.statusRezervirano{
+    color: #f5a40f;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.statusSlobodno{
+    color: forestgreen;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.parkingList{
+    display: flex;
+    align-items: center;
 }

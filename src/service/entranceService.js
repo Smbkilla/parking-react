@@ -6,13 +6,8 @@ export const getAllEntrances = () => {
   return axios.get(api.getAllEntrancesApi());
 };
 
-export const createEntrance = ({entranceName, level}) => {
-  return axios.post(api.createEntranceApi(), {
-    entranceName,
-    floor:{
-      level,
-    },
-  });
+export const createEntrance = (entrance) => {
+  return axios.post(api.createEntranceApi(), entrance);
 };
 
 export const updateEntrance = (entrance) => {
